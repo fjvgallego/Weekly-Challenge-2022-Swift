@@ -26,27 +26,3 @@ import Foundation
  *
  */
 
-func drawFrame(text: String) {
-
-    let words = text.components(separatedBy: " ")
-    var maxLength = 0
-    words.forEach { word in
-        if word.count > maxLength {
-            maxLength = word.count
-        }
-    }
-
-    print(String(repeating: "*", count: maxLength + 4))
-
-    words.forEach { word in
-        if !word.isEmpty {
-            print("* \(word)\(String(repeating: " ", count: maxLength - word.count)) *")
-        }
-    }
-
-    print(String(repeating: "*", count: maxLength + 4))
-}
-
-drawFrame(text: "¿Qué te parece el reto?")
-drawFrame(text: "¿Qué te     parece el reto?")
-drawFrame(text: "¿Cuántos retos de código de la comunidad has resuelto?")

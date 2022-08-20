@@ -21,32 +21,3 @@ import Foundation
  *
  */
 
-print(isBalanced(expression: "{a + b [c] * (2x2)}}}}"))
-print(isBalanced(expression: "{ [ a * ( c + d ) ] - 5 }"))
-print(isBalanced(expression: "{ a * ( c + d ) ] - 5 }"))
-print(isBalanced(expression: "{a^4 + (((ax4)}"))
-print(isBalanced(expression: "{ ] a * ( c + d ) + ( 2 - 3 )[ - 5 }"))
-print(isBalanced(expression: "{{{{{{(}}}}}}"))
-print(isBalanced(expression: "(a"))
-
-func isBalanced(expression: String) -> Bool {
-
-    let symbols = ["{":"}", "[":"]", "(":")"]
-    var stack = [String]()
-
-    for character in expression {
-        
-        let symbol = character.description
-        let containsKey = symbols.keys.contains(symbol)
-        
-        if containsKey || symbols.values.contains(symbol) {
-            if containsKey {
-                stack.append(symbol)
-            } else if stack.isEmpty || symbol != symbols[stack.popLast() ?? ""] {
-                return false
-            }
-        }
-    }
-
-    return stack.isEmpty
-}

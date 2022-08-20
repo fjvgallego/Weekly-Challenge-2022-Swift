@@ -19,25 +19,3 @@ import Foundation
  *
  */
 
-func capitalize(text: String) -> String {
-    
-    var capitalizedText = text
-
-    let clearText = NSMutableString(string: text)
-    let regex = try! NSRegularExpression(pattern: "[^A-zÀ-ú]", options: [])
-    regex.replaceMatches(in: clearText, options: [], range: NSMakeRange(0, clearText.length), withTemplate: " ")
-   
-    clearText.components(separatedBy: " ").forEach { word in
-                
-        let firstChar = word.prefix(1).description.uppercased()
-        let otherChars = word.dropFirst()
-        
-        capitalizedText = capitalizedText.replacingOccurrences(of: word, with: "\(firstChar)\(otherChars)")
-    }
-    
-    return capitalizedText
-}
-
-print(capitalize(text: "¿hola qué tal estás?"))
-print(capitalize(text: "¿hola      qué tal estás?"))
-print(capitalize(text: "El niño ñoño"))

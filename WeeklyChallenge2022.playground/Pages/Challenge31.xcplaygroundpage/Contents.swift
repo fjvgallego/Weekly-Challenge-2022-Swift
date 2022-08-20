@@ -18,21 +18,3 @@ import Foundation
  *
  */
 
-func thirtyLeapYears(year: Int) {
-
-    var currentYear = year + 1
-    var yearCount = 0
-
-    while yearCount < 30 {
-
-        if currentYear % 4 == 0 && (currentYear % 100 != 0 || currentYear % 400 == 0) {
-            print(currentYear)
-            yearCount += 1
-        }
-
-        currentYear += 1
-    }
-}
-
-thirtyLeapYears(year: 1999)
-thirtyLeapYears(year: -500)

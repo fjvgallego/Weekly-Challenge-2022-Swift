@@ -15,34 +15,3 @@ import Foundation
  *
  */
 
-func findSecondGreater(numbers: [Int]) -> Int? {
-
-    var sortedNumbers: [Int] = []
-
-    for number in numbers {
-
-        var found = false
-
-        for (index, sortedNumber) in sortedNumbers.enumerated() {
-
-            if number >= sortedNumber {
-                if number != sortedNumber {
-                    sortedNumbers.insert(number, at: index)
-                }
-                found = true
-                break
-            }
-        }
-
-        if !found {
-            sortedNumbers.append(number)
-        }
-    }
-
-    return sortedNumbers.count >= 2 ? sortedNumbers[1] : nil
-}
-
-print(findSecondGreater(numbers: [4, 6, 1, 8, 2]) ?? "No se ha encontrado un valor")
-print(findSecondGreater(numbers: [4, 6, 8, 8, 6]) ?? "No se ha encontrado un valor")
-print(findSecondGreater(numbers: [4, 4]) ?? "No se ha encontrado un valor")
-print(findSecondGreater(numbers: []) ?? "No se ha encontrado un valor")

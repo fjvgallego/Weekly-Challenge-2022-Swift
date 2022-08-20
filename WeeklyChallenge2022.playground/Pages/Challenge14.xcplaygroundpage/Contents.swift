@@ -18,23 +18,3 @@ import Foundation
  *
  */
 
-func isArmstrong(number: Int) -> Bool {
-
-    if number < 0 {
-        return false
-    }
-    
-    var sum = 0
-    let powValue = Double(number.description.count)
-    
-    number.description.forEach { character in
-        sum += Int(pow(Double(character.description) ?? 0, powValue))
-    }
-
-    return number == sum
-}
-
-print(isArmstrong(number: 371))
-print(isArmstrong(number: -371))
-print(isArmstrong(number: 372))
-print(isArmstrong(number: 0))
