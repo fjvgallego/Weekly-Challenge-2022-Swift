@@ -18,3 +18,27 @@ import Foundation
  *
  */
 
+calculateNextThirtyLeapYears(from: 2020)
+
+func calculateNextThirtyLeapYears(from year: Int) {
+    var nextThirtyLeapYears = [Int]()
+    
+    var potentialLeapYear = year
+    
+    while nextThirtyLeapYears.count != 30 {
+        let divisibleBy4 = potentialLeapYear.isMultiple(of: 4)
+        let notDivisibleBy100 = !potentialLeapYear.isMultiple(of: 100)
+        let divisibleBy400 = potentialLeapYear.isMultiple(of: 400)
+        
+        let meetsLeapConditions = divisibleBy4 && (notDivisibleBy100 || divisibleBy400)
+        
+        if  meetsLeapConditions {
+            nextThirtyLeapYears.append(potentialLeapYear)
+        }
+        
+        potentialLeapYear += 1
+    }
+    
+    print("Next 30 leap years from \(year): ")
+    print(nextThirtyLeapYears)
+}
